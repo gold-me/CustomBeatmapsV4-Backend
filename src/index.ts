@@ -10,7 +10,7 @@ import { logger } from './publiclogger'
 const config = JSON.parse(readFileSync('config.json', 'utf8'))
 
 // File Server for db/public
-/*logger.info(`Hosting db/public on port ${config["public-data-server-port"]}`)
+logger.info(`Hosting db/public on port ${config["public-data-server-port"]}`)
 exec(`http-server db/public --port ${config["public-data-server-port"]}`, (error, stdout, stderr) => {
     logger.info("(HTTP server response)")
     if (!!stdout)
@@ -20,8 +20,8 @@ exec(`http-server db/public --port ${config["public-data-server-port"]}`, (error
     if (!!stderr)
         logger.error(stderr)
 });
-*/
 
+/*
 // Discord client
 runClient({
     onAcceptBeatmap : (attachmentName, beatmapURL, onComplete) => {
@@ -46,3 +46,11 @@ runClient({
         config: config
     })
 })
+*/
+    // Node server
+    runUserServer({
+        getUserInfoFromUniqueId: getUserInfo,
+        createNewUser: registerNewUser,
+        postHighScore : submission => registerScoreUserId(submission.beatmapKey, submission.uniqueUserId, {score: submission.score, accuracy: submission.accuracy, fc: submission.fc}),
+        config: config
+    })

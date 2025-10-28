@@ -1,9 +1,9 @@
 
 # SETUP
 1) `clone <repo>`
-2) `cd CustomBeatmapsv3-Backend`
+2) `cd CustomBeatmapsv4-Backend`
 3) `apt-get install nodejs`
-4) `npm install http-server`
+4) `npm install http-server sucrase sucrase-node`
 5) `mkdir db`
 6) `echo <YOUR BOT TOKEN HERE> > bot-secret.txt`
 7) Fill in `config.json` with the proper channel IDs
